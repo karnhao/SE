@@ -23,10 +23,10 @@ public class MGame {
     MGame(Board board, List<Player> players, List<Die> dice) {
         // 2 dice
         if (dice.size() != 2) throw new IllegalArgumentException("Must have 2 dice");
-        this.dice = dice; // referrence
+        this.dice = dice;
 
         if (players.size() < 2 || players.size() > 8) throw new IllegalArgumentException("Must have at least 2 players and not more than 8 players");
-        this.players = players; // referrence
+        this.players = players;
     }
 
     public void playGame() {

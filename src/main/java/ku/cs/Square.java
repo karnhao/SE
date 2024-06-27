@@ -1,6 +1,9 @@
 package ku.cs;
 
-public class Square {
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
+public class Square implements Comparable<Square>{
     private String name;
     
     Square(String name) {
@@ -13,5 +16,10 @@ public class Square {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(Square o) {
+        return name.compareTo(o.getName());
     }
 }
