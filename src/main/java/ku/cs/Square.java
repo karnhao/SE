@@ -22,4 +22,10 @@ public class Square implements Comparable<Square>{
     public int compareTo(Square o) {
         return name.compareTo(o.getName());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Square)) return false;
+        return this.name.equals(((Square) obj).name);
+    }
 }

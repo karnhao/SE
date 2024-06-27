@@ -1,17 +1,17 @@
 package ku.cs;
 
 public class Die {
-    private int faceValue;
+    private byte faceValue;
 
     Die() {
         roll();
     }
 
     public void roll() {
-        this.faceValue = (int) ( 1 + Math.random() * 6 );
+        this.faceValue = (byte) ( 1 + Math.random() * 6 );
     }
 
-    public int getFaceValue() {
+    public byte getFaceValue() {
         return faceValue;
     }
 }
