@@ -17,7 +17,7 @@ public class Board {
     }
 
     /**
-     * ส่งกลับ Location ใหม่จาก Location เก่าและจำนวนรวมของหน้าเต๋าทั้งหมด
+     * ส่งกลับ Location ใหม่จาก Location เก่าและคำนวน Location ใหม่จากจำนวนรวมของหน้าเต๋าทั้งหมด
      * @param oldLocation Square Location เก่า
      * @param faceValueTotal ผลการทอยลูกเต๋า (จำนวนที่จะเดิน)
      * @return
