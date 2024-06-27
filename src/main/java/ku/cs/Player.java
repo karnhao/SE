@@ -32,6 +32,7 @@ public class Player implements Comparable<Player> {
     }
 
     public void setDice(List<Die> dice) {
+        if (dice.size() != MGame.DICE_COUNT) throw new IllegalArgumentException("Must have 2 dice");
         this.dice = dice;
     }
 
@@ -46,13 +47,14 @@ public class Player implements Comparable<Player> {
     public void takeTurn() {
         byte totalFaceValue = 0;
 
+        // ทอยลูกเต๋าทั้งหมดและหาผลรวม
         for (Die die : this.dice) {
             die.roll();
             byte fv = die.getFaceValue();
             totalFaceValue += fv;
         }
 
-        // Show Roll Result
+        // แสดงผลลัพท์ Roll
         showRollResult(totalFaceValue);
 
         
@@ -61,7 +63,7 @@ public class Player implements Comparable<Player> {
         
         this.piece.setLocation(newLocation);
 
-        // Show Location Result
+        // แสดงผลลัพท์การเดินลูกหมาก
         showLocationResult(oldLocation, newLocation);
     }
 

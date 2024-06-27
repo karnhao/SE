@@ -37,7 +37,7 @@ public class MGame {
         // ผู้เล่นมีได้น้อยสุด 2 ผู้เล่นแต่ไม่มากกว่า 8
         if (players.size() < MIN_PLAYERS || players.size() > MAX_PLAYERS) throw new IllegalArgumentException("Must have at least 2 players and not more than 8 players");
         
-        // เพิ่มผู้เล่นไปในเกมแล้วให้ลูกเต๋า ลูกหมาก และกระดานเกม
+        // เพิ่มผู้เล่นไปในเกมแล้วให้ลูกเต๋า ลูกหมาก และกระดานเกมกับผู้เล่นตาม UML Class Diagram กำหนด
         for (Player p : players) {
             p.setDice(dice);
             p.setBoard(board);

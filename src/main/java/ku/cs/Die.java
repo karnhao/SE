@@ -1,5 +1,8 @@
 package ku.cs;
 
+/**
+ * 6510451000 Sittipat Tepsutar
+ */
 public class Die {
     private byte faceValue;
 

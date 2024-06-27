@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class Main {
 
     public static final byte PLAYER_COUNT = 4;
@@ -24,11 +27,17 @@ public class Main {
 
 
         MGame game = new MGame(board, players, dice);
+
+        // เริ่มเกม 10 rounds
         game.playGame(10);
     }
 
 
-
+    /**
+     * สร้าง TreeSet ของ Square ด้วยชื่อจะอยู่ในรูปแบบ S00, S01, S02, ... ,
+     * @param count จำนวน Square ที่ต้องการสร้าง
+     * @return TreeSet ของ Square
+     */
     private static TreeSet<Square> createSquares(byte count) {
         TreeSet<Square> squares = new TreeSet<>();
         for (byte i = 0; i < count; i++) {
@@ -56,12 +65,15 @@ public class Main {
 
     }
 
+    /**
+     * สร้างลิสของลูกเต๋าขนาด count
+     * @param count
+     * @return ลิสของลูกเต๋า
+     */
     private static List<Die> createDice(byte count) {
+
         ArrayList<Die> dice = new ArrayList<>();
-
-        for (byte i = 0; i < count; i++) 
-            dice.add(new Die());
-
+        for (byte i = 0; i < count; i++) dice.add(new Die());
         return dice;
         
     }
