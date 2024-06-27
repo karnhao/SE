@@ -1,5 +1,8 @@
 package ku.cs;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class Piece {
     private Square location;
 
