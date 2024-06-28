@@ -1,5 +1,5 @@
 # SE
-> 6510451000 Sittipat Tepsutar
+6510451000 Sittipat Tepsutar
 
 Respository นี้ใช้ประกอบการเรียนในรายวิชา 01418471-65 Software Design and Development
 
