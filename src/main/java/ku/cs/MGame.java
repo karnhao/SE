@@ -24,8 +24,8 @@ public class MGame {
      * 
      * จะไม่มีการ copy list ของ dice เพื่อลดพื้นที่ใน visual memory
      * @param board the board to be played.
-     * @param players players to play, must have at least 2 players and not more than 8 players.
-     * @param dice the dice to be used for the game, must have 2 dice only.
+     * @param players players to play
+     * @param dice the dice to be used for the game
      */
     MGame(Board board, TreeSet<Player> players, List<Die> dice) {
         this.board = board;
@@ -35,7 +35,7 @@ public class MGame {
         this.dice = dice;
 
         // ผู้เล่นมีได้น้อยสุด 2 ผู้เล่นแต่ไม่มากกว่า 8
-        if (players.size() < MIN_PLAYERS || players.size() > MAX_PLAYERS) throw new IllegalArgumentException("Must have at least 2 players and not more than 8 players");
+        if (players.size() < MIN_PLAYERS || players.size() > MAX_PLAYERS) throw new IllegalArgumentException(String.format("Must have at least %d players and not more than %d players", MIN_PLAYERS, MAX_PLAYERS));
         
         // เพิ่มผู้เล่นไปในเกมแล้วให้ลูกเต๋า ลูกหมาก และกระดานเกมกับผู้เล่นตาม UML Class Diagram กำหนด
         for (Player p : players) {
@@ -57,12 +57,11 @@ public class MGame {
     }
 
     private void playRound() {
+
+        // ผู้เล่นทุกคน take turn ใน 1 round
         for (Player p : players) { 
-
             System.out.println(p.getName() + "'s Turn");
-
             p.takeTurn();
-
             System.out.println();
         }
         
