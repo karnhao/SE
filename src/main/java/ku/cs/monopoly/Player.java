@@ -1,4 +1,4 @@
-package ku.cs;
+package ku.cs.monopoly;
 
 import java.util.List;
 

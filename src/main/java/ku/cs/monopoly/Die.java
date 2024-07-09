@@ -1,4 +1,4 @@
-package ku.cs;
+package ku.cs.monopoly;
 
 /**
  * 6510451000 Sittipat Tepsutar
