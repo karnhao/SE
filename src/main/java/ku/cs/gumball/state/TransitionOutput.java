@@ -1,5 +1,8 @@
 package ku.cs.gumball.state;
 
+/**
+ * @deprecated
+ */
 public class TransitionOutput {
     private Class<State> clazz;
     private String[] args;

@@ -3,8 +3,12 @@ package ku.cs.gumball.state;
 import java.util.List;
 
 public class StateMachine {
-    private State startState;
+    private State currentState;
     private List<State> states;
+
+
+    public StateMachine() {
+    }
 
     public StateMachine(List<State> states) {
         this(states, 0);
@@ -14,36 +18,51 @@ public class StateMachine {
         if (states.size() < 1) throw new IllegalArgumentException();
 
         this.states = states;
-        this.startState = this.states.get(startStateIndex);
+        this.currentState = this.states.get(startStateIndex);
     }
 
-    public void start() {
+    protected void setStates(List<State> states, int startStateIndex) {
+        this.states = states;
+        this.currentState = states.get(startStateIndex);
+    }
 
-        State currentState = this.startState;
-        State outputState = null;
-        while (currentState != null) {
+    /**
+     * @deprecated Use {@link #step(String[])} instead
+     * @param args
+     */
+    protected void start(String[] args) {
+        step(args);
+    }
 
-            currentState.entry();
-            TransitionOutput output = currentState.transition();
-            currentState.exit();
+    protected void step(String[] args) {
+        Class<? extends State> output = this.runState(this.currentState, args);
 
             // search for output state
-
+            if (output == null || output.equals(this.currentState.getClass())) return;
             for (State s : states) 
-                if (s.getClass().equals(output.getStateClass())) outputState = s;
+                if (s.getClass().equals(output)) {
+                    this.currentState = s;
+                    break;
+                }
+
+            // No State found = Still at same state
+    }
+
+    private Class<? extends State> runState(State state, String[] args) {
+        state.entry(args);
+        Class<? extends State> output;
+        try {
             
+            output = state.transition(args);
+            if ( ! output.equals(state.getClass()))
+                state.exit(args);
+            
+                return output;
 
-            currentState = outputState;
-            currentState.setArgs(output.getArgs());
+        } catch (Exception e) {
+            System.out.println(e.getClass().toString() + e.getMessage());
         }
-    }
-
-    public void step(String[] args) {
-
-    }
-
-    private TransitionOutput runState(State state) {
+        
         return null;
-        // TODO : runState
     }
 }
