@@ -4,10 +4,10 @@
 Respository นี้ใช้ประกอบการเรียนในรายวิชา 01418471-65 Software Design and Development
 
 
-## Week 1
-เขียนโปรแกรมตาม Diagram ดังรูป
+## Week 2
+แปลง state machine diagram เป็นโค้ด
 
-![](src/main/resources/ku/cs/diagram.png)
+![](../../../../../../src/main/resources/ku/cs/state_machine_diagram.png)
 
 ### ตัวอย่างผลลัพท์จากการรันโปรแกรมหลัง build
 

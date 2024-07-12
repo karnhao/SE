@@ -26,41 +26,40 @@ public class StateMachine {
         this.currentState = states.get(startStateIndex);
     }
 
-    /**
-     * @deprecated Use {@link #step(String[])} instead
-     * @param args
-     */
     protected void start(String[] args) {
-        step(args);
+        this.currentState.entry(args);
     }
 
     protected void step(String[] args) {
         Class<? extends State> output = this.runState(this.currentState, args);
 
-            // search for output state
+            // search for output state object
             if (output == null || output.equals(this.currentState.getClass())) return;
             for (State s : states) 
                 if (s.getClass().equals(output)) {
                     this.currentState = s;
+                    this.currentState.entry(args);
                     break;
                 }
 
-            // No State found = Still at same state
+            // No State found = Still at the same state
     }
 
     private Class<? extends State> runState(State state, String[] args) {
-        state.entry(args);
+
         Class<? extends State> output;
         try {
             
             output = state.transition(args);
-            if ( ! output.equals(state.getClass()))
+            if (output == null) return null;
+            
+            if ( ! state.getClass().equals(output))
                 state.exit(args);
             
-                return output;
+            return output;
 
         } catch (Exception e) {
-            System.out.println(e.getClass().toString() + e.getMessage());
+            System.err.println(e.getClass().toString() + " : " + e.getMessage());
         }
         
         return null;
