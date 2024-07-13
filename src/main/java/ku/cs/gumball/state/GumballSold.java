@@ -2,6 +2,9 @@ package ku.cs.gumball.state;
 
 import ku.cs.gumball.GumballMachine;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class GumballSold extends State {
 
     private GumballMachine machine;

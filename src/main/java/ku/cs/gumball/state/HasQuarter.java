@@ -1,5 +1,8 @@
 package ku.cs.gumball.state;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class HasQuarter extends State {
 
     @Override

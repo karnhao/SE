@@ -1,5 +1,8 @@
 package ku.cs.gumball.state;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public abstract class State {
     protected String[] args;
     

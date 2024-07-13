@@ -1,5 +1,8 @@
 package ku.cs.gumball;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class Main {
     public static void main(String[] args) {
 

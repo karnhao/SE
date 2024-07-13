@@ -10,6 +10,9 @@ import ku.cs.gumball.state.OutOfGumballs;
 import ku.cs.gumball.state.State;
 import ku.cs.gumball.state.StateMachine;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class GumballMachine extends StateMachine {
     private short gumballCount;
 

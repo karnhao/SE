@@ -2,6 +2,9 @@ package ku.cs.gumball.state;
 
 import java.util.List;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class StateMachine {
     private State currentState;
     private List<State> states;

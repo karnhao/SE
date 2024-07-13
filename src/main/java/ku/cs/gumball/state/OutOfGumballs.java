@@ -1,5 +1,8 @@
 package ku.cs.gumball.state;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class OutOfGumballs extends State {
     @Override
     public void entry(String[] args) {
