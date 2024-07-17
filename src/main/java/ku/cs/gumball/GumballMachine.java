@@ -3,17 +3,17 @@ package ku.cs.gumball;
 import java.util.LinkedList;
 import java.util.List;
 
+import ku.cs.gumball.state.GumballMachineState;
 import ku.cs.gumball.state.GumballSold;
 import ku.cs.gumball.state.HasQuarter;
 import ku.cs.gumball.state.NoQuarter;
 import ku.cs.gumball.state.OutOfGumballs;
-import ku.cs.gumball.state.State;
 import ku.cs.gumball.state.StateMachine;
 
 /**
  * @author 6510451000 Sittipat Tepsutar
  */
-public class GumballMachine extends StateMachine {
+public class GumballMachine extends StateMachine<GumballMachineState> {
     private short gumballCount;
 
     public GumballMachine() {
@@ -42,38 +42,57 @@ public class GumballMachine extends StateMachine {
         System.out.printf("Gumball added +%d, Invetory: %d\n", count, this.gumballCount);
     }
 
-    private List<State> createStates() {
-        List<State> states = new LinkedList<>();
+    private List<GumballMachineState> createStates() {
+        List<GumballMachineState> states = new LinkedList<>();
 
         states.add(new NoQuarter(this)); // start state
-        states.add(new HasQuarter());
+        states.add(new HasQuarter(this));
         states.add(new GumballSold(this));
-        states.add(new OutOfGumballs());
+        states.add(new OutOfGumballs(this));
 
         return states;
     }
 
-    private void basicStep(String arg1) {
-        this.step(new String[]{arg1});
+    private void printErr(Exception e) {
+        System.err.println("ERROR: " + e.getClass().getName() + " - " + e.getMessage());
     }
 
     public void insertQuarter() {
         System.out.println("You inserted a quarter.");
-        this.basicStep("insert_quarter");
+
+        try {
+            this.getCurrentState().insertQuarter();
+        } catch (Exception e) {
+            printErr(e);
+        }
     }
 
     public void ejectQuarter() {
         System.out.println("You request to eject a quarter.");
-        this.basicStep("eject_quarter");
+
+        try {
+            this.getCurrentState().ejectQuarter();
+        } catch (Exception e) {
+            printErr(e);
+        }
     }
 
     public void turnsCrank() {
         System.out.println("You turned...");
-        this.basicStep("turns_crank");
+
+        try {
+            this.getCurrentState().turnsCrank();
+        } catch (Exception e) {
+            printErr(e);
+        }
     }
 
     public void dispenseGumball() {
-        this.basicStep("dispense_gumball");
+        try {
+            this.getCurrentState().dispenseGumball();
+        } catch (Exception e) {
+            printErr(e);
+        }
     }
 
 

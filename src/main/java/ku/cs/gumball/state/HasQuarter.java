@@ -1,18 +1,24 @@
 package ku.cs.gumball.state;
 
+import ku.cs.gumball.GumballMachine;
+
 /**
  * @author 6510451000 Sittipat Tepsutar
  */
-public class HasQuarter extends State {
+public class HasQuarter extends GumballMachineState {
+
+    public HasQuarter(GumballMachine machine) {
+        super(machine);
+    }
 
     @Override
-    public Class<? extends State> transition(String[] args) {
-        if (args[0].equalsIgnoreCase("eject_quarter")) {
-            System.out.println("Quarter returned");
-            return NoQuarter.class;
-        }
-        else if (args[0].equalsIgnoreCase("turns_crank"))
-            return GumballSold.class;
-        throw new IllegalArgumentException();
+    public void ejectQuarter() {
+        System.out.println("Quarter returned");
+        this.getMachine().changeState(NoQuarter.class);
+    }
+
+    @Override
+    public void turnsCrank() {
+        this.getMachine().changeState(GumballSold.class);
     }
 }

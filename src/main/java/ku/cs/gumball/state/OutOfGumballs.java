@@ -1,11 +1,18 @@
 package ku.cs.gumball.state;
 
+import ku.cs.gumball.GumballMachine;
+
 /**
  * @author 6510451000 Sittipat Tepsutar
  */
-public class OutOfGumballs extends State {
+public class OutOfGumballs extends GumballMachineState {
+
+    public OutOfGumballs(GumballMachine machine) {
+        super(machine);
+    }
+
     @Override
-    public void entry(String[] args) {
+    public void entry() {
         System.out.println("Oops, out of gumballs!");
 
         System.out.println("Mighty Gumball, Inc.");
@@ -14,16 +21,22 @@ public class OutOfGumballs extends State {
     }
 
     @Override
-    public void exit(String[] args) {
+    public void exit() {
         System.err.println("How!?");
     }
 
     @Override
-    public Class<? extends State> transition(String[] args) {
-        if (args[0].equalsIgnoreCase("insert_quarter")) 
-            System.out.println("Quarter returned. And Nothing happened.");
-        else System.out.println("Nothing happened.");
-        
-        return null;
+    public void insertQuarter() {
+        System.out.println("Quarter returned. And Nothing happened.");
+    }
+
+    @Override
+    public void turnsCrank() {
+        System.out.println("Nothing happened");
+    }
+
+    @Override
+    public void ejectQuarter() {
+        System.out.println("Nothing happened.");
     }
 }

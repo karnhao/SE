@@ -5,23 +5,19 @@ import ku.cs.gumball.GumballMachine;
 /**
  * @author 6510451000 Sittipat Tepsutar
  */
-public class GumballSold extends State {
-
-    private GumballMachine machine;
+public class GumballSold extends GumballMachineState {
 
     public GumballSold(GumballMachine machine) {
-        this.machine = machine;
+        super(machine);
     }
 
     @Override
-    public Class<? extends State> transition(String[] args) {
-        if (args[0].equalsIgnoreCase("dispense_gumball")) {
-            machine.removeGumball((short) 1);
-            System.out.println("A gumball comes rolling out the slot");
-            if (machine.getGumballCount() > 0)
-                return NoQuarter.class;
-            return OutOfGumballs.class;
-        }
-        return null;
+    public void dispenseGumball() {
+        this.getMachine().removeGumball((short) 1);
+        System.out.println("A gumball comes rolling out the slot");
+
+        if (this.getMachine().getGumballCount() > 0)
+            this.getMachine().changeState(NoQuarter.class);
+        else this.getMachine().changeState(OutOfGumballs.class);
     }
 }

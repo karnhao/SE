@@ -5,66 +5,54 @@ import java.util.List;
 /**
  * @author 6510451000 Sittipat Tepsutar
  */
-public class StateMachine {
-    private State currentState;
-    private List<State> states;
+public class StateMachine<T extends State<T>> {
+    private T currentState;
+    private List<T> states;
 
 
     public StateMachine() {
     }
 
-    public StateMachine(List<State> states) {
+    public StateMachine(List<T> states) {
         this(states, 0);
     }
 
-    public StateMachine(List<State> states, int startStateIndex) {
+    public StateMachine(List<T> states, int startStateIndex) {
         if (states.size() < 1) throw new IllegalArgumentException();
 
         this.states = states;
         this.currentState = this.states.get(startStateIndex);
     }
 
-    protected void setStates(List<State> states, int startStateIndex) {
+    protected void setStates(List<T> states, int startStateIndex) {
         this.states = states;
         this.currentState = states.get(startStateIndex);
     }
 
+    protected T getCurrentState() {
+        return this.currentState;
+    }
+
     protected void start(String[] args) {
-        this.currentState.entry(args);
+        this.currentState.entry();
     }
 
-    protected void step(String[] args) {
-        Class<? extends State> output = this.runState(this.currentState, args);
+    protected void changeState(Class<? extends T> targetStateClass) {
+        T targetState = null;
 
-            // search for output state object
-            if (output == null || output.equals(this.currentState.getClass())) return;
-            for (State s : states) 
-                if (s.getClass().equals(output)) {
-                    this.currentState = s;
-                    this.currentState.entry(args);
-                    break;
-                }
-
-            // No State found = Still at the same state
-    }
-
-    private Class<? extends State> runState(State state, String[] args) {
-
-        Class<? extends State> output;
-        try {
-            
-            output = state.transition(args);
-            if (output == null) return null;
-            
-            if ( ! state.getClass().equals(output))
-                state.exit(args);
-            
-            return output;
-
-        } catch (Exception e) {
-            System.err.println(e.getClass().toString() + " : " + e.getMessage());
+        // Search for the target state
+        for (T s : states) {
+            if (s.getClass().equals(targetStateClass)) {
+                targetState = s;
+                break;
+            }
         }
-        
-        return null;
+
+        // State not found or Same state will do nothing
+        if (targetState == null || targetState.getClass().equals(this.currentState.getClass())) return;
+
+        this.currentState.exit(); // exit old state
+        this.currentState = targetState;
+        this.currentState.entry();
     }
 }
