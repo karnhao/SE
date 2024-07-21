@@ -9,12 +9,14 @@ import ku.cs.gumball.state.HasQuarter;
 import ku.cs.gumball.state.NoQuarter;
 import ku.cs.gumball.state.OutOfGumballs;
 import ku.cs.gumball.state.StateMachine;
+import ku.cs.gumball.state.Winner;
 
 /**
  * @author 6510451000 Sittipat Tepsutar
  */
 public class GumballMachine extends StateMachine<GumballMachineState> {
     private short gumballCount;
+    private String flavour = "random";
 
     public GumballMachine() {
         this((short) 0);
@@ -26,6 +28,14 @@ public class GumballMachine extends StateMachine<GumballMachineState> {
         this.gumballCount = gumballCount;
 
         this.start(null); // call entry method of start state
+    }
+
+    public String getFlavour() {
+        return flavour;
+    }
+
+    public void setFlavour(String flavour) {
+        this.flavour = flavour;
     }
 
     public short getGumballCount() {
@@ -49,6 +59,7 @@ public class GumballMachine extends StateMachine<GumballMachineState> {
         states.add(new HasQuarter(this));
         states.add(new GumballSold(this));
         states.add(new OutOfGumballs(this));
+        states.add(new Winner(this));
 
         return states;
     }
@@ -95,6 +106,12 @@ public class GumballMachine extends StateMachine<GumballMachineState> {
         }
     }
 
-
+    public void choose(String flavour) {
+        try {
+            this.getCurrentState().chooseFlavour(flavour);
+        } catch (Exception e) {
+            printErr(e);
+        }
+    }
 
 }

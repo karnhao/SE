@@ -31,4 +31,8 @@ public abstract class GumballMachineState extends State<GumballMachineState> {
     public void dispenseGumball() {
         throw new IllegalStateException();
     }
+
+    public void chooseFlavour(String flavour) {
+        throw new IllegalStateException();
+    }
 }

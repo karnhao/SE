@@ -19,6 +19,8 @@ public class NoQuarter extends GumballMachineState {
         System.out.println("Inventory: " + gumballCount + " Gumball(s)");
         if (gumballCount > 0) System.out.println("Machine is waiting for quarter");
         else System.out.println("Machine is sold out");
+
+        this.getMachine().setFlavour("random");
     }
 
     @Override

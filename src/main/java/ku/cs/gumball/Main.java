@@ -17,6 +17,7 @@ public class Main {
         
         System.out.println("=== Day 1 ===\n");
         g.insertQuarter();
+        g.choose("orange");
         g.turnsCrank();
         g.dispenseGumball();
         System.out.println("End of Day 1\n\n");

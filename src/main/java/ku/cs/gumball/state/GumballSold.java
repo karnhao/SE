@@ -14,7 +14,7 @@ public class GumballSold extends GumballMachineState {
     @Override
     public void dispenseGumball() {
         this.getMachine().removeGumball((short) 1);
-        System.out.println("A gumball comes rolling out the slot");
+        System.out.println("A " + this.getMachine().getFlavour() + " gumball comes rolling out the slot");
 
         if (this.getMachine().getGumballCount() > 0)
             this.getMachine().changeState(NoQuarter.class);

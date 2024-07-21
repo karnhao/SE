@@ -37,6 +37,11 @@ public class OutOfGumballs extends GumballMachineState {
 
     @Override
     public void ejectQuarter() {
-        System.out.println("Nothing happened.");
+        System.out.println("Nothing happened");
+    }
+
+    @Override
+    public void dispenseGumball() {
+        System.out.println("Nothing happened");
     }
 }
