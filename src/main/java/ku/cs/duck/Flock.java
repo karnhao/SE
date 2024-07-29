@@ -20,8 +20,10 @@ public class Flock implements Quackable {
     @Override
     public void quack() {
         if (quackers.size() > 0) {
-            quackers.get(0).quack();
-            quackers.get(0).quack();
+            Quackable leader = quackers.get(0);
+            leader.quack();
+            leader.quack();
+            leader.quack();
         }
 
         quackers.forEach((t)->t.quack());
