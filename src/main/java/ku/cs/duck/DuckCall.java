@@ -1,7 +1,7 @@
 package ku.cs.duck;
 
 /**
- * DuckCall
+ * @author 6510451000 Sittipat Tepsutar
  */
 public class DuckCall implements Quackable {
 

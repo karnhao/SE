@@ -1,5 +1,8 @@
 package ku.cs.design_principles;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class User {
 
     public String getName() {

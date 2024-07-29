@@ -6,6 +6,9 @@ import ku.cs.duck.Quackable;
 import ku.cs.duck.RedheadDuck;
 import ku.cs.duck.RubberDuck;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class DuckFactory extends AbstractDuckFactory {
 
     @Override

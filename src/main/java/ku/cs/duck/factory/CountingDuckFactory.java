@@ -3,6 +3,9 @@ package ku.cs.duck.factory;
 import ku.cs.duck.QuackCounter;
 import ku.cs.duck.Quackable;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class CountingDuckFactory extends AbstractDuckFactory {
 
     private AbstractDuckFactory originFactory;

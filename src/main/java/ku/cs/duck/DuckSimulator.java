@@ -6,6 +6,10 @@ import ku.cs.duck.factory.CountingPoliteDuckFactory;
 import ku.cs.duck.factory.DuckFactory;
 import ku.cs.duck.factory.PoliteDuckFactory;
 
+
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class DuckSimulator {
     public static void main(String[] args) {
         DuckSimulator simulator = new DuckSimulator();

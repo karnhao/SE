@@ -2,6 +2,9 @@ package ku.cs.duck;
 
 import java.util.Random;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class PoliteDuck implements Quackable {
 
     Quackable quackable;

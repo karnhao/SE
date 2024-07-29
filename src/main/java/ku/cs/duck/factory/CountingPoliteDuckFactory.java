@@ -2,6 +2,9 @@ package ku.cs.duck.factory;
 
 import ku.cs.duck.Quackable;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class CountingPoliteDuckFactory extends AbstractDuckFactory  {
     
     private AbstractDuckFactory originFactory = new DuckFactory();

@@ -3,6 +3,9 @@ package ku.cs.duck.factory;
 import ku.cs.duck.PoliteDuck;
 import ku.cs.duck.Quackable;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public class PoliteDuckFactory extends AbstractDuckFactory {
     
     private AbstractDuckFactory originFactory;

@@ -2,6 +2,9 @@ package ku.cs.gumball.state;
 
 import ku.cs.gumball.GumballMachine;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 public abstract class GumballMachineState extends State<GumballMachineState> {
     
     public GumballMachineState(StateMachine<GumballMachineState> machine) {
