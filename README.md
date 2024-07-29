@@ -5,5 +5,6 @@ Respository นี้ใช้ประกอบการเรียนใน�
 
 ## งาน
  - [Week 1 - เขียนโปรแกรมตาม Diagram](./src/main/java/ku/cs/monopoly)
- - [Week 3 - แปลง state machine diagram เป็นโค้ด](./src/main/java/ku/cs/gumball) (Current)
- - [Week 3 - แก้โค๊ดให้เป็นไปตาม Design Principles](./src/main/java/ku/cs/design_principles) (Current)
+ - [Week 3 - แปลง state machine diagram เป็นโค้ด](./src/main/java/ku/cs/gumball)
+ - [Week 3 - แก้โค๊ดให้เป็นไปตาม Design Principles](./src/main/java/ku/cs/design_principles)
+ - [Week 4 - Duck Design Patterns](./src/main/java/ku/cs/duck) (Current)
