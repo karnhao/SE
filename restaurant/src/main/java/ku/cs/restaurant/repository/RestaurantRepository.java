@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 @Repository
 public interface RestaurantRepository extends JpaRepository<Restaurant, UUID> {
     Restaurant findByName(String name);

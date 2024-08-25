@@ -1,4 +1,9 @@
 
+// 6510451000 Sittipat Tepsutar
+
+/**
+ * 
+ */
 async function main() {
     let res
     res = await postRestaurantTest("Rabbit Restaurant", 0.1, "Rabbit Island");

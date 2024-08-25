@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 @RestController
 public class RestaurantController {
 
