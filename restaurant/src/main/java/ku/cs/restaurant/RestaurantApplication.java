@@ -3,6 +3,9 @@ package ku.cs.restaurant;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author 6510451000 Sittipat Tepsutar
+ */
 @SpringBootApplication
 public class RestaurantApplication {
 
