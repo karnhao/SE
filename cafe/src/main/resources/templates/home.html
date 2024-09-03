@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe Web Application</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-6">Welcome to Cafe</h1>
+        <p><span th:text="${greeting}"></span></p>
+
+    </div>
+</body>
+</html>
