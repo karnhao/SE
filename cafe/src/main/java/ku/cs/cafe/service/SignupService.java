@@ -1,11 +1,13 @@
 package ku.cs.cafe.service;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import ku.cs.cafe.entity.Member;
 import ku.cs.cafe.repository.MemberRepository;
+import ku.cs.cafe.request.SignupRequest;
 
 @Service
 public class SignupService {
@@ -14,13 +16,15 @@ public class SignupService {
     private MemberRepository repository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private ModelMapper modelMapper;
 
     public boolean isUsernameAvailable(String username) {
         return repository.findByUsername(username) == null;
     }
 
-    public void createUser(Member user) {
-        Member record = new Member();
+    public void createUser(SignupRequest user) {
+        Member record = modelMapper.map(user, Member.class);
         record.setName(user.getName());
         record.setUsername(user.getUsername());
         record.setRole("ROLE_USER");
