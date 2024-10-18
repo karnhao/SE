@@ -26,7 +26,7 @@ func boo(x int) (int, error) {
 	return x, nil
 }
 
-func main() {
+func main1() {
 	for i := range 5 {
 		a, _ := foo(i, int64(i+1))
 		fmt.Println(a)

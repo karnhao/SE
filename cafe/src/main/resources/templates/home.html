@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="https://www.thymeleaf.org"
     xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
 <head>
     <meta charset="UTF-8">
     <title>Cafe Web Application</title>
@@ -15,6 +16,10 @@
         <h1 class="display-6">Welcome to Cafe</h1>
         <p><span th:text="${greeting}"></span></p>
 
+        <div id="success-msg" class="alert alert-success" th:if="${confirmOrder}">
+            Your order has been successfully submitted !
+        </div>
+
         <div sec:authorize="isAuthenticated()">
             <p>Khun <b><span sec:authentication="name"></span></b></p>
             <a class="btn btn-primary" th:href="@{/logout}">Logout</a>
@@ -26,4 +31,5 @@
 
     </div>
 </body>
+
 </html>

@@ -25,7 +25,15 @@ public class SecurityConfig {
         http.authorizeRequests((requests) -> requests.requestMatchers(new AntPathRequestMatcher("/")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
                 .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
-                .requestMatchers(new AntPathRequestMatcher("/signup")).permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/signup")).permitAll().requestMatchers(
+                        new AntPathRequestMatcher("/menus/add"))
+                .hasRole("ADMIN")
+                .requestMatchers(
+                        new AntPathRequestMatcher("/categories/add"))
+                .hasRole("ADMIN")
+                .requestMatchers(
+                        new AntPathRequestMatcher("/admin/**"))
+                .hasRole("ADMIN")
                 .anyRequest().authenticated()) // <-- เอา semicolon ตรงบรรทัดนี้ออกด้วย
                 .formLogin((form) -> form
                         .loginPage("/login")
